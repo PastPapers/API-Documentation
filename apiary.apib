@@ -3,7 +3,7 @@ HOST: http://ppapi.lexteam.xyz/
 
 # PastPapers
 
-PastPapers alows students to do quick revision on subjects of their choice, with older exams.
+PastPapers allows students to do quick revision on subjects of their choice, with older exams.
 Users can search through a catalog of past exams of which they can download to their system, and test themselves on.
 
 ## Papers [/papers]
@@ -12,15 +12,35 @@ Users can search through a catalog of past exams of which they can download to t
 
 + Response 200 (application/json)
 
-        [
-            {
-                "id": 1,
-                "subject": "Computer Science",
-                "board": "OCR",
-                "date": "2016-01-17",
-                "__LINK": "http://ppapi.lexteam.xyz/paper/1"
-            }
-        ]
+        {
+            "error": false,
+            "code": 200,
+            "message": null,
+            "data": [
+                {
+                    "id": 1,
+                    "subject": {
+                        "safeName": "computer-science",
+                        "name": "Computer Science"
+                    },
+                    "name": "j276",
+                    "board": "OCR",
+                    "date": "2016-01-17",
+                    "__LINK": "http://ppapi.lexteam.xyz/v1/paper/1"
+                },
+                {
+                    "id": 2,
+                    "subject": {
+                        "safeName": "chemistry",
+                        "name": "Chemistry"
+                    },
+                    "name": "4402",
+                    "board": "AQA",
+                    "date": "2014-06-10",
+                    "__LINK": "http://ppapi.lexteam.xyz/v1/paper/2"
+                }
+            ]
+        }
         
 ### Paper [/paper/{id}]
 
@@ -32,11 +52,21 @@ Users can search through a catalog of past exams of which they can download to t
 + Response 200 (application/json)
 
         {
-            "subject": "Computer Science",
-            "board": "OCR",
-            "date": "2016-01-17",
-            "downloads": {
-                "paper": "http://www.ocr.org.uk/Images/226764-unit-j276-01-computer-systems-sample-assessment-materials.pdf",
-                "mark_scheme": "http://www.ocr.org.uk/Images/226764-unit-j276-01-computer-systems-sample-assessment-materials.pdf"
+            "error": false,
+            "code": 200,
+            "message": null,
+            "data": {
+                "subject": {
+                    "id": 1,
+                    "safeName": "computer-science",
+                    "name": "Computer Science"
+                },
+                "name": "j276",
+                "board": "OCR",
+                "date": "2016-01-17",
+                "downloads": {
+                    "paper": "http:\/\/www.ocr.org.uk\/Images\/226764-unit-j276-01-computer-systems-sample-assessment-materials.pdf",
+                    "mark_scheme": "http:\/\/www.ocr.org.uk\/Images\/226764-unit-j276-01-computer-systems-sample-assessment-materials.pdf"
+                }
             }
         }
