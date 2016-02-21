@@ -1,0 +1,42 @@
+FORMAT: 1A
+HOST: http://ppapi.lexteam.xyz/
+
+# PastPapers
+
+PastPapers alows students to do quick revision on subjects of their choice, with older exams.
+Users can search through a catalog of past exams of which they can download to their system, and test themselves on.
+
+## Papers [/papers]
+
+### List All Papers [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "subject": "Computer Science",
+                "board": "OCR",
+                "date": "2016-01-17",
+                "__LINK": "http://ppapi.lexteam.xyz/paper/1"
+            }
+        ]
+        
+### Paper [/paper/{id}]
+
++ Parameters
+    + id (integer) - The id of the paper.
+        
+### List A Paper [GET]
+
++ Response 200 (application/json)
+
+        {
+            "subject": "Computer Science",
+            "board": "OCR",
+            "date": "2016-01-17",
+            "downloads": {
+                "paper": "http://www.ocr.org.uk/Images/226764-unit-j276-01-computer-systems-sample-assessment-materials.pdf",
+                "mark_scheme": "http://www.ocr.org.uk/Images/226764-unit-j276-01-computer-systems-sample-assessment-materials.pdf"
+            }
+        }
